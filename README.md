@@ -22,8 +22,10 @@ npm start
 
 Then open [Windy Developer Mode](https://www.windy.com/developer-mode) and load:
 ```
-https://localhost:9999/plugin.js
+https://hermes-vps.tail353a41.ts.net:9999/plugin.js
 ```
+
+**Note:** The dev server uses Tailscale HTTPS so you can develop remotely from any device on your tailnet.
 
 ## Roadmap
 

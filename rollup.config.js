@@ -10,7 +10,13 @@ import rollupCleanup from 'rollup-plugin-cleanup';
 import { less } from 'svelte-preprocess-less';
 import sveltePreprocess from 'svelte-preprocess';
 
-import { transformCodeToESMPlugin, keyPEM, certificatePEM } from '@windycom/plugin-devtools';
+import { transformCodeToESMPlugin } from '@windycom/plugin-devtools';
+import fs from 'fs';
+
+// Use Tailscale HTTPS certs for remote dev access
+const TAILSCALE_DOMAIN = 'hermes-vps.tail353a41.ts.net';
+const keyPEM = fs.readFileSync(`${TAILSCALE_DOMAIN}.key`, 'utf8');
+const certificatePEM = fs.readFileSync(`${TAILSCALE_DOMAIN}.crt`, 'utf8');
 
 const useSourceMaps = true;
 
