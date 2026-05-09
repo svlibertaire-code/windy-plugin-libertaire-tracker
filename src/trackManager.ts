@@ -77,5 +77,15 @@ export function clearAllTracks(): void {
     nextId = 1;
 }
 
+export async function loadRemoteGPX(url: string, name: string): Promise<DisplayTrack[]> {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${url}: ${response.status}`);
+    }
+    const gpxText = await response.text();
+    const parsed = parseGPX(gpxText);
+    return addTrackFromGPX(parsed, name);
+}
+
 export { parseGPX, toLatLngArray, getTrackDateRange };
 export type { TrackPoint, ParsedGPX };

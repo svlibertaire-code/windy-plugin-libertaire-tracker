@@ -13,10 +13,12 @@ import sveltePreprocess from 'svelte-preprocess';
 import { transformCodeToESMPlugin } from '@windycom/plugin-devtools';
 import fs from 'fs';
 
-// Use Tailscale HTTPS certs for remote dev access
+// Use Tailscale HTTPS certs for remote dev access (only when SERVE=true)
 const TAILSCALE_DOMAIN = 'hermes-vps.tail353a41.ts.net';
-const keyPEM = fs.readFileSync(`${TAILSCALE_DOMAIN}.key`, 'utf8');
-const certificatePEM = fs.readFileSync(`${TAILSCALE_DOMAIN}.crt`, 'utf8');
+const keyPath = `/var/lib/tailscale/certs/${TAILSCALE_DOMAIN}.key`;
+const certPath = `/var/lib/tailscale/certs/${TAILSCALE_DOMAIN}.crt`;
+const keyPEM = fs.existsSync(keyPath) ? fs.readFileSync(keyPath, 'utf8') : '';
+const certificatePEM = fs.existsSync(certPath) ? fs.readFileSync(certPath, 'utf8') : '';
 
 const useSourceMaps = true;
 

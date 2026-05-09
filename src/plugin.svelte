@@ -30,7 +30,7 @@
     </div>
     <input
         type="file"
-        accept=".gpx,application/gpx+xml"
+        accept=".gpx,.gpx+xml,application/gpx+xml,application/octet-stream"
         multiple
         bind:this={ fileInput }
         on:change={ handleFileSelect }
@@ -98,8 +98,18 @@
         </div>
     {:else}
         <div class="empty-state">
-            No tracks loaded yet.<br />
-            Import a GPX file to get started.
+            {#if isLoadingPreloaded}
+                <div class="loading">Loading Libertaire tracks...</div>
+            {:else}
+                <div>No tracks loaded yet.</div>
+                <button class="btn-preload" on:click={ loadPreloadedTracks }>
+                    Load all Libertaire tracks
+                </button>
+                <div class="import-hint">Or import a GPX file above</div>
+            {/if}
+            {#if preloadError}
+                <div class="preload-error">{ preloadError }</div>
+            {/if}
         </div>
     {/if}
 </section>
@@ -118,6 +128,7 @@
         clearAllTracks,
         parseGPX,
         toLatLngArray,
+        loadRemoteGPX,
     } from './trackManager';
     import type { DisplayTrack } from './trackManager';
 
@@ -367,8 +378,55 @@
         refreshAllTracks();
     };
 
+
+    // Preloaded Libertaire tracks
+    const PRELOADED_TRACKS = [
+        { url: 'http://100.90.68.31/gpx/2011_0.5nm.gpx', name: '2011' },
+        { url: 'http://100.90.68.31/gpx/2012_0.5nm.gpx', name: '2012' },
+        { url: 'http://100.90.68.31/gpx/2013_0.5nm.gpx', name: '2013' },
+        { url: 'http://100.90.68.31/gpx/2016_complete_0.5nm.gpx', name: '2016' },
+        { url: 'http://100.90.68.31/gpx/2017_complete_0.5nm.gpx', name: '2017' },
+        { url: 'http://100.90.68.31/gpx/2018_0.5nm.gpx', name: '2018' },
+        { url: 'http://100.90.68.31/gpx/2019_0.5nm.gpx', name: '2019' },
+        { url: 'http://100.90.68.31/gpx/2021_0.5nm.gpx', name: '2021' },
+        { url: 'http://100.90.68.31/gpx/2022_0.5nm.gpx', name: '2022' },
+        { url: 'http://100.90.68.31/gpx/2023_0.5nm.gpx', name: '2023' },
+        { url: 'http://100.90.68.31/gpx/2024_0.5nm.gpx', name: '2024' },
+    ];
+
+    let isLoadingPreloaded = false;
+    let preloadError = '';
+
+    async function loadPreloadedTracks(): Promise<void> {
+        if (isLoadingPreloaded) return;
+        isLoadingPreloaded = true;
+        preloadError = '';
+        try {
+            for (const track of PRELOADED_TRACKS) {
+                try {
+                    const newTracks = await loadRemoteGPX(track.url, track.name);
+                    tracks = getTracks();
+                    newTracks.forEach(renderTrack);
+                } catch (err) {
+                    console.warn(`Failed to load ${track.name}:`, err);
+                }
+            }
+            // Fit all tracks after loading
+            setTimeout(fitAllTracks, 500);
+        } catch (err) {
+            preloadError = 'Failed to load some tracks';
+            console.error('Preload error:', err);
+        } finally {
+            isLoadingPreloaded = false;
+            tracks = getTracks();
+        }
+    }
     onMount(() => {
         tracks = getTracks();
+        // Auto-load preloaded tracks if none exist yet
+        if (tracks.length === 0) {
+            loadPreloadedTracks();
+        }
     });
 
     onDestroy(() => {
@@ -576,5 +634,32 @@
         color: rgba(255, 255, 255, 0.4);
         font-size: 13px;
         line-height: 1.6;
+    }
+
+    .btn-preload {
+        margin-top: 12px;
+        background: #2ecc71;
+        color: #fff;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+
+        &:hover {
+            background: #27ae60;
+        }
+    }
+
+    .loading {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+    }
+
+    .preload-error {
+        margin-top: 8px;
+        color: #e74c3c;
+        font-size: 12px;
     }
 </style>
