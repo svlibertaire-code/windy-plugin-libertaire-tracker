@@ -20,12 +20,19 @@ npm install
 npm start
 ```
 
-Then open [Windy Developer Mode](https://www.windy.com/developer-mode) and load:
+Then open [Windy Developer Mode](https://www.windy.com/developer-mode).
+
+For the GitHub-hosted build, load it through jsDelivr (GitHub raw serves `text/plain`, which browsers can reject for ES modules):
+```
+https://cdn.jsdelivr.net/gh/svlibertaire-code/windy-plugin-libertaire-tracker@master/dist/plugin.js
+```
+
+For local development, run the dev server, visit this URL once to accept the certificate, then load it in Windy:
 ```
 https://hermes-vps.tail353a41.ts.net:9999/plugin.js
 ```
 
-**Note:** The dev server uses Tailscale HTTPS so you can develop remotely from any device on your tailnet.
+**Note:** The dev server uses Tailscale HTTPS so you can develop remotely from any device on your tailnet. Preloaded GPX tracks are fetched from `https://libertairesailing.com/gpx/` so they work from Windy HTTPS without mixed-content blocking.
 
 ## Roadmap
 

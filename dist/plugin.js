@@ -1772,47 +1772,47 @@ function instance($$self, $$props, $$invalidate) {
 
 	const PRELOADED_TRACKS = [
 		{
-			url: 'http://100.90.68.31/gpx/2011_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2011_0.5nm.gpx',
 			name: '2011'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2012_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2012_0.5nm.gpx',
 			name: '2012'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2013_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2013_0.5nm.gpx',
 			name: '2013'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2016_complete_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2016_complete_0.5nm.gpx',
 			name: '2016'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2017_complete_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2017_complete_0.5nm.gpx',
 			name: '2017'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2018_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2018_0.5nm.gpx',
 			name: '2018'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2019_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2019_0.5nm.gpx',
 			name: '2019'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2021_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2021_0.5nm.gpx',
 			name: '2021'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2022_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2022_0.5nm.gpx',
 			name: '2022'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2023_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2023_0.5nm.gpx',
 			name: '2023'
 		},
 		{
-			url: 'http://100.90.68.31/gpx/2024_0.5nm.gpx',
+			url: 'https://libertairesailing.com/gpx/2024_0.5nm.gpx',
 			name: '2024'
 		}
 	];
