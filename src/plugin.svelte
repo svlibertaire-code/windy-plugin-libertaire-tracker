@@ -120,8 +120,42 @@
     let dragCounter = 0;
 
     // Map layers storage
-    const polylines: Map<string, L.Polyline> = new Map();
+    const polylines: Map<string, L.Polyline[]> = new Map();
     const markers: Map<string, L.Marker[]> = new Map();
+
+    function splitAntimeridian(latLngs: [number, number][]): [number, number][][] {
+        if (!latLngs || latLngs.length < 2) return latLngs ? [latLngs] : [];
+
+        const segments: [number, number][][] = [];
+        let current: [number, number][] = [latLngs[0]];
+
+        for (let i = 1; i < latLngs.length; i++) {
+            const prev = latLngs[i - 1];
+            const curr = latLngs[i];
+            const prevLat = prev[0];
+            const prevLng = prev[1];
+            const currLat = curr[0];
+            const currLng = curr[1];
+
+            if (Math.abs(currLng - prevLng) > 180) {
+                const prevDist = Math.abs(180 - Math.abs(prevLng));
+                const currDist = Math.abs(180 - Math.abs(currLng));
+                const frac = prevDist / (prevDist + currDist);
+                const edgeLat = prevLat + (currLat - prevLat) * frac;
+                const edgeLng1 = prevLng > 0 ? 180 : -180;
+                const edgeLng2 = currLng > 0 ? 180 : -180;
+
+                current.push([edgeLat, edgeLng1]);
+                segments.push(current);
+                current = [[edgeLat, edgeLng2], curr];
+            } else {
+                current.push(curr);
+            }
+        }
+
+        segments.push(current);
+        return segments.filter(segment => segment.length >= 2);
+    }
 
     function renderTrack(track: DisplayTrack): void {
         // Remove existing if any
@@ -133,18 +167,21 @@
         }
 
         const latLngs = toLatLngArray(track.points);
+        const splitSegments = splitAntimeridian(latLngs);
 
-        // Create polyline
-        const polyline = new L.Polyline(latLngs, {
+        // Create split polylines so tracks crossing ±180° do not draw across the whole map
+        const trackPolylines = splitSegments.map(segment => new L.Polyline(segment, {
             color: track.color,
             weight: 3,
             opacity: 0.85,
             lineJoin: 'round',
-        }).addTo(map);
+        }).addTo(map));
 
-        // Highlight on hover
-        polyline.on('mouseover', () => polyline.setStyle({ weight: 5, opacity: 1 }));
-        polyline.on('mouseout', () => polyline.setStyle({ weight: 3, opacity: 0.85 }));
+        // Highlight all split segments together on hover
+        trackPolylines.forEach(polyline => {
+            polyline.on('mouseover', () => trackPolylines.forEach(p => p.setStyle({ weight: 5, opacity: 1 })));
+            polyline.on('mouseout', () => trackPolylines.forEach(p => p.setStyle({ weight: 3, opacity: 0.85 })));
+        });
 
         // Start/end markers
         const trackMarkers: L.Marker[] = [];
@@ -173,15 +210,15 @@
             }
         }
 
-        polylines.set(track.id, polyline);
+        polylines.set(track.id, trackPolylines);
         markers.set(track.id, trackMarkers);
         tracks = getTracks();
     }
 
     function removeFromMap(trackId: string): void {
-        const polyline = polylines.get(trackId);
-        if (polyline) {
-            map.removeLayer(polyline);
+        const trackPolylines = polylines.get(trackId);
+        if (trackPolylines) {
+            trackPolylines.forEach(polyline => map.removeLayer(polyline));
             polylines.delete(trackId);
         }
         const trackMarkers = markers.get(trackId);
@@ -193,7 +230,7 @@
 
     function refreshAllTracks(): void {
         // Clear all existing
-        polylines.forEach(p => map.removeLayer(p));
+        polylines.forEach(ps => ps.forEach(p => map.removeLayer(p)));
         markers.forEach(ms => ms.forEach(m => map.removeLayer(m)));
         polylines.clear();
         markers.clear();
@@ -322,7 +359,7 @@
     }
 
     function clearAll(): void {
-        polylines.forEach(p => map.removeLayer(p));
+        polylines.forEach(ps => ps.forEach(p => map.removeLayer(p)));
         markers.forEach(ms => ms.forEach(m => map.removeLayer(m)));
         polylines.clear();
         markers.clear();
@@ -418,7 +455,7 @@
     });
 
     onDestroy(() => {
-        polylines.forEach(p => map.removeLayer(p));
+        polylines.forEach(ps => ps.forEach(p => map.removeLayer(p)));
         markers.forEach(ms => ms.forEach(m => map.removeLayer(m)));
         polylines.clear();
         markers.clear();

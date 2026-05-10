@@ -10,8 +10,8 @@ const __pluginConfig =  {
   "mobileUI": "fullscreen",
   "routerPath": "/libertaire-tracker",
   "private": false,
-  "built": 1778395154001,
-  "builtReadable": "2026-05-10T06:39:14.001Z",
+  "built": 1778398235865,
+  "builtReadable": "2026-05-10T07:30:35.865Z",
   "screenshot": "screenshot.jpg"
 };
 
@@ -1511,6 +1511,38 @@ function create_fragment(ctx) {
 	};
 }
 
+function splitAntimeridian(latLngs) {
+	if (!latLngs || latLngs.length < 2) return latLngs ? [latLngs] : [];
+	const segments = [];
+	let current = [latLngs[0]];
+
+	for (let i = 1; i < latLngs.length; i++) {
+		const prev = latLngs[i - 1];
+		const curr = latLngs[i];
+		const prevLat = prev[0];
+		const prevLng = prev[1];
+		const currLat = curr[0];
+		const currLng = curr[1];
+
+		if (Math.abs(currLng - prevLng) > 180) {
+			const prevDist = Math.abs(180 - Math.abs(prevLng));
+			const currDist = Math.abs(180 - Math.abs(currLng));
+			const frac = prevDist / (prevDist + currDist);
+			const edgeLat = prevLat + (currLat - prevLat) * frac;
+			const edgeLng1 = prevLng > 0 ? 180 : -180;
+			const edgeLng2 = currLng > 0 ? 180 : -180;
+			current.push([edgeLat, edgeLng1]);
+			segments.push(current);
+			current = [[edgeLat, edgeLng2], curr];
+		} else {
+			current.push(curr);
+		}
+	}
+
+	segments.push(current);
+	return segments.filter(segment => segment.length >= 2);
+}
+
 function formatDate(dateStr) {
 	try {
 		const d = new Date(dateStr);
@@ -1540,17 +1572,21 @@ function instance($$self, $$props, $$invalidate) {
 		}
 
 		const latLngs = toLatLngArray(track.points);
+		const splitSegments = splitAntimeridian(latLngs);
 
-		const polyline = new L.Polyline(latLngs,
+		const trackPolylines = splitSegments.map(segment => new L.Polyline(segment,
 		{
 				color: track.color,
 				weight: 3,
 				opacity: 0.85,
 				lineJoin: 'round'
-			}).addTo(map);
+			}).addTo(map));
 
-		polyline.on('mouseover', () => polyline.setStyle({ weight: 5, opacity: 1 }));
-		polyline.on('mouseout', () => polyline.setStyle({ weight: 3, opacity: 0.85 }));
+		trackPolylines.forEach(polyline => {
+			polyline.on('mouseover', () => trackPolylines.forEach(p => p.setStyle({ weight: 5, opacity: 1 })));
+			polyline.on('mouseout', () => trackPolylines.forEach(p => p.setStyle({ weight: 3, opacity: 0.85 })));
+		});
+
 		const trackMarkers = [];
 
 		if (latLngs.length > 0) {
@@ -1581,16 +1617,16 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		}
 
-		polylines.set(track.id, polyline);
+		polylines.set(track.id, trackPolylines);
 		markers.set(track.id, trackMarkers);
 		$$invalidate(0, tracks = getTracks());
 	}
 
 	function removeFromMap(trackId) {
-		const polyline = polylines.get(trackId);
+		const trackPolylines = polylines.get(trackId);
 
-		if (polyline) {
-			map.removeLayer(polyline);
+		if (trackPolylines) {
+			trackPolylines.forEach(polyline => map.removeLayer(polyline));
 			polylines.delete(trackId);
 		}
 
@@ -1603,7 +1639,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function refreshAllTracks() {
-		polylines.forEach(p => map.removeLayer(p));
+		polylines.forEach(ps => ps.forEach(p => map.removeLayer(p)));
 		markers.forEach(ms => ms.forEach(m => map.removeLayer(m)));
 		polylines.clear();
 		markers.clear();
@@ -1660,7 +1696,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function clearAll() {
-		polylines.forEach(p => map.removeLayer(p));
+		polylines.forEach(ps => ps.forEach(p => map.removeLayer(p)));
 		markers.forEach(ms => ms.forEach(m => map.removeLayer(m)));
 		polylines.clear();
 		markers.clear();
@@ -1780,7 +1816,7 @@ function instance($$self, $$props, $$invalidate) {
 	});
 
 	onDestroy(() => {
-		polylines.forEach(p => map.removeLayer(p));
+		polylines.forEach(ps => ps.forEach(p => map.removeLayer(p)));
 		markers.forEach(ms => ms.forEach(m => map.removeLayer(m)));
 		polylines.clear();
 		markers.clear();
