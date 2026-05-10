@@ -9,33 +9,17 @@
         { title }
     </div>
 
-    <!-- File Import Area -->
-    <div
-        class="import-area"
-        class:dragover={ isDragging }
-        on:dragenter={ handleDragEnter }
-        on:dragleave={ handleDragLeave }
-        on:dragover={ handleDragOver }
-        on:drop={ handleDrop }
-        on:click={ triggerFileInput }
-        on:keydown={ handleKeydown }
-        role="button"
-        tabindex="0"
-    >
-        <div class="import-icon">📁</div>
-        <div class="import-text">
-            { isDragging ? 'Drop GPX files here' : 'Click or drop GPX files' }
-        </div>
-        <div class="import-hint">.gpx track files</div>
+    <!-- Autoload status -->
+    <div class="autoload-status">
+        {#if isLoadingPreloaded}
+            <div class="loading">Loading Libertaire tracks automatically...</div>
+        {:else if tracks.length > 0}
+            <div class="loaded-status">Libertaire tracks loaded automatically.</div>
+        {/if}
+        {#if preloadError}
+            <div class="preload-error">{ preloadError }</div>
+        {/if}
     </div>
-    <input
-        type="file"
-        accept=".gpx,.gpx+xml,application/gpx+xml,application/octet-stream"
-        multiple
-        bind:this={ fileInput }
-        on:change={ handleFileSelect }
-        class="hidden-input"
-    />
 
     <!-- Track List -->
     {#if tracks.length > 0}
@@ -101,14 +85,10 @@
             {#if isLoadingPreloaded}
                 <div class="loading">Loading Libertaire tracks...</div>
             {:else}
-                <div>No tracks loaded yet.</div>
+                <div>Tracks did not load automatically.</div>
                 <button class="btn-preload" on:click={ loadPreloadedTracks }>
-                    Load all Libertaire tracks
+                    Retry loading Libertaire tracks
                 </button>
-                <div class="import-hint">Or import a GPX file above</div>
-            {/if}
-            {#if preloadError}
-                <div class="preload-error">{ preloadError }</div>
             {/if}
         </div>
     {/if}
@@ -401,6 +381,7 @@
         if (isLoadingPreloaded) return;
         isLoadingPreloaded = true;
         preloadError = '';
+        const failed: string[] = [];
         try {
             for (const track of PRELOADED_TRACKS) {
                 try {
@@ -408,13 +389,20 @@
                     tracks = getTracks();
                     newTracks.forEach(renderTrack);
                 } catch (err) {
+                    failed.push(track.name);
                     console.warn(`Failed to load ${track.name}:`, err);
                 }
+            }
+            tracks = getTracks();
+            if (tracks.length === 0) {
+                preloadError = 'No tracks loaded. Check network access to libertairesailing.com/gpx/.';
+            } else if (failed.length > 0) {
+                preloadError = `Loaded ${tracks.length} track(s), but failed: ${failed.join(', ')}`;
             }
             // Fit all tracks after loading
             setTimeout(fitAllTracks, 500);
         } catch (err) {
-            preloadError = 'Failed to load some tracks';
+            preloadError = 'Failed to load Libertaire tracks';
             console.error('Preload error:', err);
         } finally {
             isLoadingPreloaded = false;
@@ -440,6 +428,16 @@
 <style lang="less">
     .plugin__content {
         padding: 10px;
+    }
+
+    .autoload-status {
+        margin-bottom: 12px;
+        min-height: 18px;
+
+        .loaded-status {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 12px;
+        }
     }
 
     .import-area {

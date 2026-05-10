@@ -10,8 +10,8 @@ const __pluginConfig =  {
   "mobileUI": "fullscreen",
   "routerPath": "/libertaire-tracker",
   "private": false,
-  "built": 1778356550480,
-  "builtReadable": "2026-05-09T19:55:50.480Z",
+  "built": 1778395154001,
+  "builtReadable": "2026-05-10T06:39:14.001Z",
   "screenshot": "screenshot.jpg"
 };
 
@@ -893,67 +893,116 @@ async function loadRemoteGPX(url, name) {
 const { Map: Map_1 } = globals;
 
 function add_css(target) {
-	append_styles(target, "svelte-1qteg4n", ".plugin__content.svelte-1qteg4n.svelte-1qteg4n{padding:10px}.import-area.svelte-1qteg4n.svelte-1qteg4n{border:2px dashed rgba(255, 255, 255, 0.3);border-radius:8px;padding:20px;text-align:center;cursor:pointer;transition:all 0.2s;margin-bottom:15px}.import-area.svelte-1qteg4n.svelte-1qteg4n:hover,.import-area.dragover.svelte-1qteg4n.svelte-1qteg4n{border-color:#3498db;background:rgba(52, 152, 219, 0.1)}.import-area.svelte-1qteg4n .import-icon.svelte-1qteg4n{font-size:32px;margin-bottom:8px}.import-area.svelte-1qteg4n .import-text.svelte-1qteg4n{font-size:14px;color:#fff;margin-bottom:4px}.import-area.svelte-1qteg4n .import-hint.svelte-1qteg4n{font-size:11px;color:rgba(255, 255, 255, 0.5)}.hidden-input.svelte-1qteg4n.svelte-1qteg4n{display:none}.track-list.svelte-1qteg4n.svelte-1qteg4n{margin-bottom:15px}.track-list.svelte-1qteg4n .list-header.svelte-1qteg4n{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255, 255, 255, 0.6);margin-bottom:8px;padding:0 4px}.track-list.svelte-1qteg4n .list-header .btn-clear.svelte-1qteg4n{background:transparent;border:none;color:#e74c3c;cursor:pointer;font-size:11px;padding:2px 6px;border-radius:4px}.track-list.svelte-1qteg4n .list-header .btn-clear.svelte-1qteg4n:hover{background:rgba(231, 76, 60, 0.1)}.track-item.svelte-1qteg4n.svelte-1qteg4n{display:flex;align-items:center;gap:8px;padding:8px;border-radius:6px;background:rgba(255, 255, 255, 0.05);margin-bottom:6px;transition:opacity 0.2s}.track-item.hidden.svelte-1qteg4n.svelte-1qteg4n{opacity:0.4}.track-item.svelte-1qteg4n .track-color-wrapper.svelte-1qteg4n{flex-shrink:0}.track-item.svelte-1qteg4n .track-color-wrapper .track-color.svelte-1qteg4n{width:24px;height:24px;border:none;border-radius:4px;cursor:pointer;padding:0;background:none}.track-item.svelte-1qteg4n .track-color-wrapper .track-color.svelte-1qteg4n::-webkit-color-swatch-wrapper{padding:0}.track-item.svelte-1qteg4n .track-color-wrapper .track-color.svelte-1qteg4n::-webkit-color-swatch{border:2px solid rgba(255, 255, 255, 0.3);border-radius:4px}.track-item.svelte-1qteg4n .track-info.svelte-1qteg4n{flex:1;min-width:0}.track-item.svelte-1qteg4n .track-info .track-name.svelte-1qteg4n{width:100%;background:transparent;border:1px solid transparent;border-radius:4px;color:#fff;font-size:13px;padding:2px 6px;margin:0}.track-item.svelte-1qteg4n .track-info .track-name.svelte-1qteg4n:hover,.track-item.svelte-1qteg4n .track-info .track-name.svelte-1qteg4n:focus{border-color:rgba(255, 255, 255, 0.2);background:rgba(255, 255, 255, 0.05);outline:none}.track-item.svelte-1qteg4n .track-info .track-meta.svelte-1qteg4n{font-size:10px;color:rgba(255, 255, 255, 0.4);margin-top:2px}.track-item.svelte-1qteg4n .track-actions.svelte-1qteg4n{display:flex;gap:4px;flex-shrink:0}.track-item.svelte-1qteg4n .track-actions button.svelte-1qteg4n{background:transparent;border:none;cursor:pointer;padding:4px;border-radius:4px;font-size:14px;line-height:1}.track-item.svelte-1qteg4n .track-actions button.svelte-1qteg4n:hover{background:rgba(255, 255, 255, 0.1)}.track-item.svelte-1qteg4n .track-actions button.btn-toggle.svelte-1qteg4n{opacity:0.6}.track-item.svelte-1qteg4n .track-actions button.btn-toggle.active.svelte-1qteg4n{opacity:1}.track-item.svelte-1qteg4n .track-actions button.btn-delete.svelte-1qteg4n{color:#e74c3c}.track-item.svelte-1qteg4n .track-actions button.btn-delete.svelte-1qteg4n:hover{background:rgba(231, 76, 60, 0.15)}.actions.svelte-1qteg4n.svelte-1qteg4n{display:flex;gap:8px}.actions.svelte-1qteg4n .btn-fit.svelte-1qteg4n{flex:1;background:#3498db;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}.actions.svelte-1qteg4n .btn-fit.svelte-1qteg4n:hover{background:#2980b9}.empty-state.svelte-1qteg4n.svelte-1qteg4n{text-align:center;padding:30px 20px;color:rgba(255, 255, 255, 0.4);font-size:13px;line-height:1.6}.btn-preload.svelte-1qteg4n.svelte-1qteg4n{margin-top:12px;background:#2ecc71;color:#fff;border:none;padding:10px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}.btn-preload.svelte-1qteg4n.svelte-1qteg4n:hover{background:#27ae60}.loading.svelte-1qteg4n.svelte-1qteg4n{color:rgba(255, 255, 255, 0.6);font-size:13px}.preload-error.svelte-1qteg4n.svelte-1qteg4n{margin-top:8px;color:#e74c3c;font-size:12px}");
+	append_styles(target, "svelte-1y8sfbv", ".plugin__content.svelte-1y8sfbv.svelte-1y8sfbv{padding:10px}.autoload-status.svelte-1y8sfbv.svelte-1y8sfbv{margin-bottom:12px;min-height:18px}.autoload-status.svelte-1y8sfbv .loaded-status.svelte-1y8sfbv{color:rgba(255, 255, 255, 0.55);font-size:12px}.track-list.svelte-1y8sfbv.svelte-1y8sfbv{margin-bottom:15px}.track-list.svelte-1y8sfbv .list-header.svelte-1y8sfbv{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255, 255, 255, 0.6);margin-bottom:8px;padding:0 4px}.track-list.svelte-1y8sfbv .list-header .btn-clear.svelte-1y8sfbv{background:transparent;border:none;color:#e74c3c;cursor:pointer;font-size:11px;padding:2px 6px;border-radius:4px}.track-list.svelte-1y8sfbv .list-header .btn-clear.svelte-1y8sfbv:hover{background:rgba(231, 76, 60, 0.1)}.track-item.svelte-1y8sfbv.svelte-1y8sfbv{display:flex;align-items:center;gap:8px;padding:8px;border-radius:6px;background:rgba(255, 255, 255, 0.05);margin-bottom:6px;transition:opacity 0.2s}.track-item.hidden.svelte-1y8sfbv.svelte-1y8sfbv{opacity:0.4}.track-item.svelte-1y8sfbv .track-color-wrapper.svelte-1y8sfbv{flex-shrink:0}.track-item.svelte-1y8sfbv .track-color-wrapper .track-color.svelte-1y8sfbv{width:24px;height:24px;border:none;border-radius:4px;cursor:pointer;padding:0;background:none}.track-item.svelte-1y8sfbv .track-color-wrapper .track-color.svelte-1y8sfbv::-webkit-color-swatch-wrapper{padding:0}.track-item.svelte-1y8sfbv .track-color-wrapper .track-color.svelte-1y8sfbv::-webkit-color-swatch{border:2px solid rgba(255, 255, 255, 0.3);border-radius:4px}.track-item.svelte-1y8sfbv .track-info.svelte-1y8sfbv{flex:1;min-width:0}.track-item.svelte-1y8sfbv .track-info .track-name.svelte-1y8sfbv{width:100%;background:transparent;border:1px solid transparent;border-radius:4px;color:#fff;font-size:13px;padding:2px 6px;margin:0}.track-item.svelte-1y8sfbv .track-info .track-name.svelte-1y8sfbv:hover,.track-item.svelte-1y8sfbv .track-info .track-name.svelte-1y8sfbv:focus{border-color:rgba(255, 255, 255, 0.2);background:rgba(255, 255, 255, 0.05);outline:none}.track-item.svelte-1y8sfbv .track-info .track-meta.svelte-1y8sfbv{font-size:10px;color:rgba(255, 255, 255, 0.4);margin-top:2px}.track-item.svelte-1y8sfbv .track-actions.svelte-1y8sfbv{display:flex;gap:4px;flex-shrink:0}.track-item.svelte-1y8sfbv .track-actions button.svelte-1y8sfbv{background:transparent;border:none;cursor:pointer;padding:4px;border-radius:4px;font-size:14px;line-height:1}.track-item.svelte-1y8sfbv .track-actions button.svelte-1y8sfbv:hover{background:rgba(255, 255, 255, 0.1)}.track-item.svelte-1y8sfbv .track-actions button.btn-toggle.svelte-1y8sfbv{opacity:0.6}.track-item.svelte-1y8sfbv .track-actions button.btn-toggle.active.svelte-1y8sfbv{opacity:1}.track-item.svelte-1y8sfbv .track-actions button.btn-delete.svelte-1y8sfbv{color:#e74c3c}.track-item.svelte-1y8sfbv .track-actions button.btn-delete.svelte-1y8sfbv:hover{background:rgba(231, 76, 60, 0.15)}.actions.svelte-1y8sfbv.svelte-1y8sfbv{display:flex;gap:8px}.actions.svelte-1y8sfbv .btn-fit.svelte-1y8sfbv{flex:1;background:#3498db;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}.actions.svelte-1y8sfbv .btn-fit.svelte-1y8sfbv:hover{background:#2980b9}.empty-state.svelte-1y8sfbv.svelte-1y8sfbv{text-align:center;padding:30px 20px;color:rgba(255, 255, 255, 0.4);font-size:13px;line-height:1.6}.btn-preload.svelte-1y8sfbv.svelte-1y8sfbv{margin-top:12px;background:#2ecc71;color:#fff;border:none;padding:10px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}.btn-preload.svelte-1y8sfbv.svelte-1y8sfbv:hover{background:#27ae60}.loading.svelte-1y8sfbv.svelte-1y8sfbv{color:rgba(255, 255, 255, 0.6);font-size:13px}.preload-error.svelte-1y8sfbv.svelte-1y8sfbv{margin-top:8px;color:#e74c3c;font-size:12px}");
 }
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[34] = list[i];
+	child_ctx[33] = list[i];
 	return child_ctx;
 }
 
-// (99:4) {:else}
-function create_else_block(ctx) {
+// (16:36)
+function create_if_block_5(ctx) {
 	let div;
-	let t;
-
-	function select_block_type_1(ctx, dirty) {
-		if (/*isLoadingPreloaded*/ ctx[3]) return create_if_block_3;
-		return create_else_block_1;
-	}
-
-	let current_block_type = select_block_type_1(ctx);
-	let if_block0 = current_block_type(ctx);
-	let if_block1 = /*preloadError*/ ctx[4] && create_if_block_2(ctx);
 
 	return {
 		c() {
 			div = element("div");
-			if_block0.c();
-			t = space();
-			if (if_block1) if_block1.c();
-			attr(div, "class", "empty-state svelte-1qteg4n");
+			div.textContent = "Libertaire tracks loaded automatically.";
+			attr(div, "class", "loaded-status svelte-1y8sfbv");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
-			if_block0.m(div, null);
+		},
+		d(detaching) {
+			if (detaching) {
+				detach(div);
+			}
+		}
+	};
+}
+
+// (14:8) {#if isLoadingPreloaded}
+function create_if_block_4(ctx) {
+	let div;
+
+	return {
+		c() {
+			div = element("div");
+			div.textContent = "Loading Libertaire tracks automatically...";
+			attr(div, "class", "loading svelte-1y8sfbv");
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+		},
+		d(detaching) {
+			if (detaching) {
+				detach(div);
+			}
+		}
+	};
+}
+
+// (19:8) {#if preloadError}
+function create_if_block_3(ctx) {
+	let div;
+	let t;
+
+	return {
+		c() {
+			div = element("div");
+			t = text(/*preloadError*/ ctx[2]);
+			attr(div, "class", "preload-error svelte-1y8sfbv");
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
 			append(div, t);
-			if (if_block1) if_block1.m(div, null);
 		},
 		p(ctx, dirty) {
-			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block0) {
-				if_block0.p(ctx, dirty);
-			} else {
-				if_block0.d(1);
-				if_block0 = current_block_type(ctx);
-
-				if (if_block0) {
-					if_block0.c();
-					if_block0.m(div, t);
-				}
+			if (dirty[0] & /*preloadError*/ 4) set_data(t, /*preloadError*/ ctx[2]);
+		},
+		d(detaching) {
+			if (detaching) {
+				detach(div);
 			}
+		}
+	};
+}
 
-			if (/*preloadError*/ ctx[4]) {
-				if (if_block1) {
-					if_block1.p(ctx, dirty);
-				} else {
-					if_block1 = create_if_block_2(ctx);
-					if_block1.c();
-					if_block1.m(div, null);
+// (83:4) {:else}
+function create_else_block(ctx) {
+	let div;
+
+	function select_block_type_2(ctx, dirty) {
+		if (/*isLoadingPreloaded*/ ctx[1]) return create_if_block_2;
+		return create_else_block_1;
+	}
+
+	let current_block_type = select_block_type_2(ctx);
+	let if_block = current_block_type(ctx);
+
+	return {
+		c() {
+			div = element("div");
+			if_block.c();
+			attr(div, "class", "empty-state svelte-1y8sfbv");
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+			if_block.m(div, null);
+		},
+		p(ctx, dirty) {
+			if (current_block_type === (current_block_type = select_block_type_2(ctx)) && if_block) {
+				if_block.p(ctx, dirty);
+			} else {
+				if_block.d(1);
+				if_block = current_block_type(ctx);
+
+				if (if_block) {
+					if_block.c();
+					if_block.m(div, null);
 				}
-			} else if (if_block1) {
-				if_block1.d(1);
-				if_block1 = null;
 			}
 		},
 		d(detaching) {
@@ -961,13 +1010,12 @@ function create_else_block(ctx) {
 				detach(div);
 			}
 
-			if_block0.d();
-			if (if_block1) if_block1.d();
+			if_block.d();
 		}
 	};
 }
 
-// (41:4) {#if tracks.length > 0}
+// (25:4) {#if tracks.length > 0}
 function create_if_block(ctx) {
 	let div1;
 	let div0;
@@ -987,7 +1035,7 @@ function create_if_block(ctx) {
 	let mounted;
 	let dispose;
 	let each_value = ensure_array_like(/*tracks*/ ctx[0]);
-	const get_key = ctx => /*track*/ ctx[34].id;
+	const get_key = ctx => /*track*/ ctx[33].id;
 
 	for (let i = 0; i < each_value.length; i += 1) {
 		let child_ctx = get_each_context(ctx, each_value, i);
@@ -1016,11 +1064,11 @@ function create_if_block(ctx) {
 			div2 = element("div");
 			button1 = element("button");
 			button1.textContent = "Fit all tracks";
-			attr(button0, "class", "btn-clear svelte-1qteg4n");
-			attr(div0, "class", "list-header svelte-1qteg4n");
-			attr(div1, "class", "track-list svelte-1qteg4n");
-			attr(button1, "class", "btn-fit svelte-1qteg4n");
-			attr(div2, "class", "actions svelte-1qteg4n");
+			attr(button0, "class", "btn-clear svelte-1y8sfbv");
+			attr(div0, "class", "list-header svelte-1y8sfbv");
+			attr(div1, "class", "track-list svelte-1y8sfbv");
+			attr(button1, "class", "btn-fit svelte-1y8sfbv");
+			attr(div2, "class", "actions svelte-1y8sfbv");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -1045,8 +1093,8 @@ function create_if_block(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(button0, "click", /*clearAll*/ ctx[16]),
-					listen(button1, "click", /*fitAllTracks*/ ctx[17])
+					listen(button0, "click", /*clearAll*/ ctx[8]),
+					listen(button1, "click", /*fitAllTracks*/ ctx[9])
 				];
 
 				mounted = true;
@@ -1055,7 +1103,7 @@ function create_if_block(ctx) {
 		p(ctx, dirty) {
 			if (dirty[0] & /*tracks*/ 1 && t1_value !== (t1_value = /*tracks*/ ctx[0].length + "")) set_data(t1, t1_value);
 
-			if (dirty[0] & /*tracks, deleteTrack, toggleVisibility, updateName, updateColor*/ 61441) {
+			if (dirty[0] & /*tracks, deleteTrack, toggleVisibility, updateName, updateColor*/ 241) {
 				each_value = ensure_array_like(/*tracks*/ ctx[0]);
 				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div1, destroy_block, create_each_block, null, get_each_context);
 			}
@@ -1077,49 +1125,39 @@ function create_if_block(ctx) {
 	};
 }
 
-// (103:12) {:else}
+// (87:12) {:else}
 function create_else_block_1(ctx) {
-	let div0;
+	let div;
 	let t1;
 	let button;
-	let t3;
-	let div1;
 	let mounted;
 	let dispose;
 
 	return {
 		c() {
-			div0 = element("div");
-			div0.textContent = "No tracks loaded yet.";
+			div = element("div");
+			div.textContent = "Tracks did not load automatically.";
 			t1 = space();
 			button = element("button");
-			button.textContent = "Load all Libertaire tracks";
-			t3 = space();
-			div1 = element("div");
-			div1.textContent = "Or import a GPX file above";
-			attr(button, "class", "btn-preload svelte-1qteg4n");
-			attr(div1, "class", "import-hint");
+			button.textContent = "Retry loading Libertaire tracks";
+			attr(button, "class", "btn-preload svelte-1y8sfbv");
 		},
 		m(target, anchor) {
-			insert(target, div0, anchor);
+			insert(target, div, anchor);
 			insert(target, t1, anchor);
 			insert(target, button, anchor);
-			insert(target, t3, anchor);
-			insert(target, div1, anchor);
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*loadPreloadedTracks*/ ctx[18]);
+				dispose = listen(button, "click", /*loadPreloadedTracks*/ ctx[10]);
 				mounted = true;
 			}
 		},
 		p: noop,
 		d(detaching) {
 			if (detaching) {
-				detach(div0);
+				detach(div);
 				detach(t1);
 				detach(button);
-				detach(t3);
-				detach(div1);
 			}
 
 			mounted = false;
@@ -1128,15 +1166,15 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (101:12) {#if isLoadingPreloaded}
-function create_if_block_3(ctx) {
+// (85:12) {#if isLoadingPreloaded}
+function create_if_block_2(ctx) {
 	let div;
 
 	return {
 		c() {
 			div = element("div");
 			div.textContent = "Loading Libertaire tracks...";
-			attr(div, "class", "loading svelte-1qteg4n");
+			attr(div, "class", "loading svelte-1y8sfbv");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -1150,36 +1188,10 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (110:12) {#if preloadError}
-function create_if_block_2(ctx) {
-	let div;
-	let t;
-
-	return {
-		c() {
-			div = element("div");
-			t = text(/*preloadError*/ ctx[4]);
-			attr(div, "class", "preload-error svelte-1qteg4n");
-		},
-		m(target, anchor) {
-			insert(target, div, anchor);
-			append(div, t);
-		},
-		p(ctx, dirty) {
-			if (dirty[0] & /*preloadError*/ 16) set_data(t, /*preloadError*/ ctx[4]);
-		},
-		d(detaching) {
-			if (detaching) {
-				detach(div);
-			}
-		}
-	};
-}
-
-// (68:28) {#if track.dateRange.start}
+// (52:28) {#if track.dateRange.start}
 function create_if_block_1(ctx) {
 	let t0;
-	let t1_value = formatDate(/*track*/ ctx[34].dateRange.start) + "";
+	let t1_value = formatDate(/*track*/ ctx[33].dateRange.start) + "";
 	let t1;
 
 	return {
@@ -1192,7 +1204,7 @@ function create_if_block_1(ctx) {
 			insert(target, t1, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*tracks*/ 1 && t1_value !== (t1_value = formatDate(/*track*/ ctx[34].dateRange.start) + "")) set_data(t1, t1_value);
+			if (dirty[0] & /*tracks*/ 1 && t1_value !== (t1_value = formatDate(/*track*/ ctx[33].dateRange.start) + "")) set_data(t1, t1_value);
 		},
 		d(detaching) {
 			if (detaching) {
@@ -1203,7 +1215,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (47:12) {#each tracks as track (track.id)}
+// (31:12) {#each tracks as track (track.id)}
 function create_each_block(key_1, ctx) {
 	let div4;
 	let div0;
@@ -1215,13 +1227,13 @@ function create_each_block(key_1, ctx) {
 	let input1_value_value;
 	let t1;
 	let div1;
-	let t2_value = /*track*/ ctx[34].points.length + "";
+	let t2_value = /*track*/ ctx[33].points.length + "";
 	let t2;
 	let t3;
 	let t4;
 	let div3;
 	let button0;
-	let t5_value = (/*track*/ ctx[34].visible ? '👁' : '🚫') + "";
+	let t5_value = (/*track*/ ctx[33].visible ? '👁' : '🚫') + "";
 	let t5;
 	let button0_title_value;
 	let t6;
@@ -1231,21 +1243,21 @@ function create_each_block(key_1, ctx) {
 	let dispose;
 
 	function input_handler(...args) {
-		return /*input_handler*/ ctx[22](/*track*/ ctx[34], ...args);
+		return /*input_handler*/ ctx[13](/*track*/ ctx[33], ...args);
 	}
 
 	function input_handler_1(...args) {
-		return /*input_handler_1*/ ctx[23](/*track*/ ctx[34], ...args);
+		return /*input_handler_1*/ ctx[14](/*track*/ ctx[33], ...args);
 	}
 
-	let if_block = /*track*/ ctx[34].dateRange.start && create_if_block_1(ctx);
+	let if_block = /*track*/ ctx[33].dateRange.start && create_if_block_1(ctx);
 
 	function click_handler_1() {
-		return /*click_handler_1*/ ctx[24](/*track*/ ctx[34]);
+		return /*click_handler_1*/ ctx[15](/*track*/ ctx[33]);
 	}
 
 	function click_handler_2() {
-		return /*click_handler_2*/ ctx[25](/*track*/ ctx[34]);
+		return /*click_handler_2*/ ctx[16](/*track*/ ctx[33]);
 	}
 
 	return {
@@ -1272,24 +1284,24 @@ function create_each_block(key_1, ctx) {
 			button1.textContent = "🗑";
 			t8 = space();
 			attr(input0, "type", "color");
-			attr(input0, "class", "track-color svelte-1qteg4n");
-			input0.value = input0_value_value = /*track*/ ctx[34].color;
+			attr(input0, "class", "track-color svelte-1y8sfbv");
+			input0.value = input0_value_value = /*track*/ ctx[33].color;
 			attr(input0, "title", "Change color");
-			attr(div0, "class", "track-color-wrapper svelte-1qteg4n");
+			attr(div0, "class", "track-color-wrapper svelte-1y8sfbv");
 			attr(input1, "type", "text");
-			attr(input1, "class", "track-name svelte-1qteg4n");
-			input1.value = input1_value_value = /*track*/ ctx[34].name;
+			attr(input1, "class", "track-name svelte-1y8sfbv");
+			input1.value = input1_value_value = /*track*/ ctx[33].name;
 			attr(input1, "title", "Edit name");
-			attr(div1, "class", "track-meta svelte-1qteg4n");
-			attr(div2, "class", "track-info svelte-1qteg4n");
-			attr(button0, "class", "btn-toggle svelte-1qteg4n");
-			attr(button0, "title", button0_title_value = /*track*/ ctx[34].visible ? 'Hide' : 'Show');
-			toggle_class(button0, "active", /*track*/ ctx[34].visible);
-			attr(button1, "class", "btn-delete svelte-1qteg4n");
+			attr(div1, "class", "track-meta svelte-1y8sfbv");
+			attr(div2, "class", "track-info svelte-1y8sfbv");
+			attr(button0, "class", "btn-toggle svelte-1y8sfbv");
+			attr(button0, "title", button0_title_value = /*track*/ ctx[33].visible ? 'Hide' : 'Show');
+			toggle_class(button0, "active", /*track*/ ctx[33].visible);
+			attr(button1, "class", "btn-delete svelte-1y8sfbv");
 			attr(button1, "title", "Remove");
-			attr(div3, "class", "track-actions svelte-1qteg4n");
-			attr(div4, "class", "track-item svelte-1qteg4n");
-			toggle_class(div4, "hidden", !/*track*/ ctx[34].visible);
+			attr(div3, "class", "track-actions svelte-1y8sfbv");
+			attr(div4, "class", "track-item svelte-1y8sfbv");
+			toggle_class(div4, "hidden", !/*track*/ ctx[33].visible);
 			this.first = div4;
 		},
 		m(target, anchor) {
@@ -1326,17 +1338,17 @@ function create_each_block(key_1, ctx) {
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
 
-			if (dirty[0] & /*tracks*/ 1 && input0_value_value !== (input0_value_value = /*track*/ ctx[34].color)) {
+			if (dirty[0] & /*tracks*/ 1 && input0_value_value !== (input0_value_value = /*track*/ ctx[33].color)) {
 				input0.value = input0_value_value;
 			}
 
-			if (dirty[0] & /*tracks*/ 1 && input1_value_value !== (input1_value_value = /*track*/ ctx[34].name) && input1.value !== input1_value_value) {
+			if (dirty[0] & /*tracks*/ 1 && input1_value_value !== (input1_value_value = /*track*/ ctx[33].name) && input1.value !== input1_value_value) {
 				input1.value = input1_value_value;
 			}
 
-			if (dirty[0] & /*tracks*/ 1 && t2_value !== (t2_value = /*track*/ ctx[34].points.length + "")) set_data(t2, t2_value);
+			if (dirty[0] & /*tracks*/ 1 && t2_value !== (t2_value = /*track*/ ctx[33].points.length + "")) set_data(t2, t2_value);
 
-			if (/*track*/ ctx[34].dateRange.start) {
+			if (/*track*/ ctx[33].dateRange.start) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
@@ -1349,18 +1361,18 @@ function create_each_block(key_1, ctx) {
 				if_block = null;
 			}
 
-			if (dirty[0] & /*tracks*/ 1 && t5_value !== (t5_value = (/*track*/ ctx[34].visible ? '👁' : '🚫') + "")) set_data(t5, t5_value);
+			if (dirty[0] & /*tracks*/ 1 && t5_value !== (t5_value = (/*track*/ ctx[33].visible ? '👁' : '🚫') + "")) set_data(t5, t5_value);
 
-			if (dirty[0] & /*tracks*/ 1 && button0_title_value !== (button0_title_value = /*track*/ ctx[34].visible ? 'Hide' : 'Show')) {
+			if (dirty[0] & /*tracks*/ 1 && button0_title_value !== (button0_title_value = /*track*/ ctx[33].visible ? 'Hide' : 'Show')) {
 				attr(button0, "title", button0_title_value);
 			}
 
 			if (dirty[0] & /*tracks*/ 1) {
-				toggle_class(button0, "active", /*track*/ ctx[34].visible);
+				toggle_class(button0, "active", /*track*/ ctx[33].visible);
 			}
 
 			if (dirty[0] & /*tracks*/ 1) {
-				toggle_class(div4, "hidden", !/*track*/ ctx[34].visible);
+				toggle_class(div4, "hidden", !/*track*/ ctx[33].visible);
 			}
 		},
 		d(detaching) {
@@ -1381,68 +1393,48 @@ function create_fragment(ctx) {
 	let section;
 	let div1;
 	let t3;
-	let div5;
 	let div2;
+	let t4;
 	let t5;
-	let div3;
-
-	let t6_value = (/*isDragging*/ ctx[1]
-	? 'Drop GPX files here'
-	: 'Click or drop GPX files') + "";
-
-	let t6;
-	let t7;
-	let div4;
-	let t9;
-	let input;
-	let t10;
 	let mounted;
 	let dispose;
 
 	function select_block_type(ctx, dirty) {
+		if (/*isLoadingPreloaded*/ ctx[1]) return create_if_block_4;
+		if (/*tracks*/ ctx[0].length > 0) return create_if_block_5;
+	}
+
+	let current_block_type = select_block_type(ctx);
+	let if_block0 = current_block_type && current_block_type(ctx);
+	let if_block1 = /*preloadError*/ ctx[2] && create_if_block_3(ctx);
+
+	function select_block_type_1(ctx, dirty) {
 		if (/*tracks*/ ctx[0].length > 0) return create_if_block;
 		return create_else_block;
 	}
 
-	let current_block_type = select_block_type(ctx);
-	let if_block = current_block_type(ctx);
+	let current_block_type_1 = select_block_type_1(ctx);
+	let if_block2 = current_block_type_1(ctx);
 
 	return {
 		c() {
 			div0 = element("div");
-			div0.textContent = `${/*title*/ ctx[5]}`;
+			div0.textContent = `${/*title*/ ctx[3]}`;
 			t1 = space();
 			section = element("section");
 			div1 = element("div");
-			div1.textContent = `${/*title*/ ctx[5]}`;
+			div1.textContent = `${/*title*/ ctx[3]}`;
 			t3 = space();
-			div5 = element("div");
 			div2 = element("div");
-			div2.textContent = "📁";
+			if (if_block0) if_block0.c();
+			t4 = space();
+			if (if_block1) if_block1.c();
 			t5 = space();
-			div3 = element("div");
-			t6 = text(t6_value);
-			t7 = space();
-			div4 = element("div");
-			div4.textContent = ".gpx track files";
-			t9 = space();
-			input = element("input");
-			t10 = space();
-			if_block.c();
+			if_block2.c();
 			attr(div0, "class", "plugin__mobile-header");
 			attr(div1, "class", "plugin__title plugin__title--chevron-back");
-			attr(div2, "class", "import-icon svelte-1qteg4n");
-			attr(div3, "class", "import-text svelte-1qteg4n");
-			attr(div4, "class", "import-hint svelte-1qteg4n");
-			attr(div5, "class", "import-area svelte-1qteg4n");
-			attr(div5, "role", "button");
-			attr(div5, "tabindex", "0");
-			toggle_class(div5, "dragover", /*isDragging*/ ctx[1]);
-			attr(input, "type", "file");
-			attr(input, "accept", ".gpx,.gpx+xml,application/gpx+xml,application/octet-stream");
-			input.multiple = true;
-			attr(input, "class", "hidden-input svelte-1qteg4n");
-			attr(section, "class", "plugin__content svelte-1qteg4n");
+			attr(div2, "class", "autoload-status svelte-1y8sfbv");
+			attr(section, "class", "plugin__content svelte-1y8sfbv");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
@@ -1450,52 +1442,51 @@ function create_fragment(ctx) {
 			insert(target, section, anchor);
 			append(section, div1);
 			append(section, t3);
-			append(section, div5);
-			append(div5, div2);
-			append(div5, t5);
-			append(div5, div3);
-			append(div3, t6);
-			append(div5, t7);
-			append(div5, div4);
-			append(section, t9);
-			append(section, input);
-			/*input_binding*/ ctx[21](input);
-			append(section, t10);
-			if_block.m(section, null);
+			append(section, div2);
+			if (if_block0) if_block0.m(div2, null);
+			append(div2, t4);
+			if (if_block1) if_block1.m(div2, null);
+			append(section, t5);
+			if_block2.m(section, null);
 
 			if (!mounted) {
-				dispose = [
-					listen(div1, "click", /*click_handler*/ ctx[20]),
-					listen(div5, "dragenter", /*handleDragEnter*/ ctx[7]),
-					listen(div5, "dragleave", /*handleDragLeave*/ ctx[8]),
-					listen(div5, "dragover", handleDragOver),
-					listen(div5, "drop", /*handleDrop*/ ctx[9]),
-					listen(div5, "click", /*triggerFileInput*/ ctx[10]),
-					listen(div5, "keydown", /*handleKeydown*/ ctx[11]),
-					listen(input, "change", /*handleFileSelect*/ ctx[6])
-				];
-
+				dispose = listen(div1, "click", /*click_handler*/ ctx[12]);
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*isDragging*/ 2 && t6_value !== (t6_value = (/*isDragging*/ ctx[1]
-			? 'Drop GPX files here'
-			: 'Click or drop GPX files') + "")) set_data(t6, t6_value);
+			if (current_block_type !== (current_block_type = select_block_type(ctx))) {
+				if (if_block0) if_block0.d(1);
+				if_block0 = current_block_type && current_block_type(ctx);
 
-			if (dirty[0] & /*isDragging*/ 2) {
-				toggle_class(div5, "dragover", /*isDragging*/ ctx[1]);
+				if (if_block0) {
+					if_block0.c();
+					if_block0.m(div2, t4);
+				}
 			}
 
-			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
-				if_block.p(ctx, dirty);
-			} else {
-				if_block.d(1);
-				if_block = current_block_type(ctx);
+			if (/*preloadError*/ ctx[2]) {
+				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block_3(ctx);
+					if_block1.c();
+					if_block1.m(div2, null);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
+			}
 
-				if (if_block) {
-					if_block.c();
-					if_block.m(section, null);
+			if (current_block_type_1 === (current_block_type_1 = select_block_type_1(ctx)) && if_block2) {
+				if_block2.p(ctx, dirty);
+			} else {
+				if_block2.d(1);
+				if_block2 = current_block_type_1(ctx);
+
+				if (if_block2) {
+					if_block2.c();
+					if_block2.m(section, null);
 				}
 			}
 		},
@@ -1508,16 +1499,16 @@ function create_fragment(ctx) {
 				detach(section);
 			}
 
-			/*input_binding*/ ctx[21](null);
-			if_block.d();
+			if (if_block0) {
+				if_block0.d();
+			}
+
+			if (if_block1) if_block1.d();
+			if_block2.d();
 			mounted = false;
-			run_all(dispose);
+			dispose();
 		}
 	};
-}
-
-function handleDragOver(e) {
-	e.preventDefault();
 }
 
 function formatDate(dateStr) {
@@ -1537,9 +1528,6 @@ function formatDate(dateStr) {
 function instance($$self, $$props, $$invalidate) {
 	const { title } = config;
 	let tracks = [];
-	let isDragging = false;
-	let fileInput;
-	let dragCounter = 0;
 	const polylines = new Map();
 	const markers = new Map();
 
@@ -1620,79 +1608,6 @@ function instance($$self, $$props, $$invalidate) {
 		polylines.clear();
 		markers.clear();
 		tracks.forEach(renderTrack);
-	}
-
-	function handleFileSelect(event) {
-		const input = event.target;
-
-		if (input.files) {
-			processFiles(Array.from(input.files));
-		}
-
-		input.value = '';
-	}
-
-	function processFiles(files) {
-		files.forEach(file => {
-			if (!file.name.toLowerCase().endsWith('.gpx')) {
-				console.warn(`Skipping non-GPX file: ${file.name}`);
-				return;
-			}
-
-			const reader = new FileReader();
-
-			reader.onload = e => {
-				try {
-					const content = e.target?.result;
-					const parsed = parseGPX(content);
-					const baseName = file.name.replace(/\.gpx$/i, '');
-					addTrackFromGPX(parsed, baseName);
-					$$invalidate(0, tracks = getTracks());
-					tracks.slice(-parsed.tracks.length).forEach(renderTrack);
-				} catch(err) {
-					console.error(`Failed to parse ${file.name}:`, err);
-					alert(`Failed to parse ${file.name}. Make sure it's a valid GPX file.`);
-				}
-			};
-
-			reader.readAsText(file);
-		});
-	}
-
-	function handleDragEnter(e) {
-		e.preventDefault();
-		dragCounter++;
-		$$invalidate(1, isDragging = true);
-	}
-
-	function handleDragLeave(e) {
-		e.preventDefault();
-		dragCounter--;
-
-		if (dragCounter === 0) {
-			$$invalidate(1, isDragging = false);
-		}
-	}
-
-	function handleDrop(e) {
-		e.preventDefault();
-		dragCounter = 0;
-		$$invalidate(1, isDragging = false);
-		const files = e.dataTransfer?.files;
-
-		if (files) {
-			processFiles(Array.from(files));
-		}
-	}
-
-	function triggerFileInput() {
-		fileInput?.click();
-	}
-
-	function handleKeydown(e) {
-		if (e.key === 'Enter' || e.key === ' ') {
-			triggerFileInput();
-		}
 	}
 
 	function updateName(id, name) {
@@ -1822,8 +1737,9 @@ function instance($$self, $$props, $$invalidate) {
 
 	async function loadPreloadedTracks() {
 		if (isLoadingPreloaded) return;
-		$$invalidate(3, isLoadingPreloaded = true);
-		$$invalidate(4, preloadError = '');
+		$$invalidate(1, isLoadingPreloaded = true);
+		$$invalidate(2, preloadError = '');
+		const failed = [];
 
 		try {
 			for (const track of PRELOADED_TRACKS) {
@@ -1832,16 +1748,25 @@ function instance($$self, $$props, $$invalidate) {
 					$$invalidate(0, tracks = getTracks());
 					newTracks.forEach(renderTrack);
 				} catch(err) {
+					failed.push(track.name);
 					console.warn(`Failed to load ${track.name}:`, err);
 				}
 			}
 
+			$$invalidate(0, tracks = getTracks());
+
+			if (tracks.length === 0) {
+				$$invalidate(2, preloadError = 'No tracks loaded. Check network access to libertairesailing.com/gpx/.');
+			} else if (failed.length > 0) {
+				$$invalidate(2, preloadError = `Loaded ${tracks.length} track(s), but failed: ${failed.join(', ')}`);
+			}
+
 			setTimeout(fitAllTracks, 500);
 		} catch(err) {
-			$$invalidate(4, preloadError = 'Failed to load some tracks');
+			$$invalidate(2, preloadError = 'Failed to load Libertaire tracks');
 			console.error('Preload error:', err);
 		} finally {
-			$$invalidate(3, isLoadingPreloaded = false);
+			$$invalidate(1, isLoadingPreloaded = false);
 			$$invalidate(0, tracks = getTracks());
 		}
 	}
@@ -1862,14 +1787,6 @@ function instance($$self, $$props, $$invalidate) {
 	});
 
 	const click_handler = () => bcast.emit('rqstOpen', 'menu');
-
-	function input_binding($$value) {
-		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
-			fileInput = $$value;
-			$$invalidate(2, fileInput);
-		});
-	}
-
 	const input_handler = (track, e) => updateColor(track.id, e.currentTarget.value);
 	const input_handler_1 = (track, e) => updateName(track.id, e.currentTarget.value);
 	const click_handler_1 = track => toggleVisibility(track.id);
@@ -1877,17 +1794,9 @@ function instance($$self, $$props, $$invalidate) {
 
 	return [
 		tracks,
-		isDragging,
-		fileInput,
 		isLoadingPreloaded,
 		preloadError,
 		title,
-		handleFileSelect,
-		handleDragEnter,
-		handleDragLeave,
-		handleDrop,
-		triggerFileInput,
-		handleKeydown,
 		updateName,
 		updateColor,
 		toggleVisibility,
@@ -1897,7 +1806,6 @@ function instance($$self, $$props, $$invalidate) {
 		loadPreloadedTracks,
 		onopen,
 		click_handler,
-		input_binding,
 		input_handler,
 		input_handler_1,
 		click_handler_1,
@@ -1908,11 +1816,11 @@ function instance($$self, $$props, $$invalidate) {
 class Plugin extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { onopen: 19 }, add_css, [-1, -1]);
+		init(this, options, instance, create_fragment, safe_not_equal, { onopen: 11 }, add_css, [-1, -1]);
 	}
 
 	get onopen() {
-		return this.$$.ctx[19];
+		return this.$$.ctx[11];
 	}
 }
 
